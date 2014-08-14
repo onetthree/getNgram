@@ -17,6 +17,15 @@ public class main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+	    String[] input_stirng = {
+		    "This is a pen .",
+		    "This is an enemy .",
+		    "That person plays marverous song with his piano ."
+			};
+	    
+	    getNgram p = new getNgram(input_stirng, 2);
+	    System.out.println(p.parseSentence());
+
     }
     
 }
