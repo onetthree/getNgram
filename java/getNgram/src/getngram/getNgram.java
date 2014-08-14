@@ -87,12 +87,22 @@ public class getNgram {
 			System.out.println("type correct params.");
 			return false;
 		}
-
+		
 		//sentence to word vector
-		List<String> ngram_vector_plane = new  ArrayList<String>();
+		List<String> NgramVector_plane = new  ArrayList<String>();
 		List<List<String>> word_vector_docs= new ArrayList<List<String>>();
 		
 		for(String input_sentence_i : this.input_sentence){
+			List<String> wordVector = this.String2WordVector(input_sentence_i);
+			List<String> NgramVector = this.makeNgram(wordVector);
+			NgramVector_plane.addAll(NgramVector);
+		}
+		
+		Map<String,Integer> wordMap = this.makeWordMap(NgramVector_plane);
+		this.word_vector_map = wordMap;
+		//this.showMapContents();
+			
+			/*
 			List<String> stringListBuffer = new ArrayList<String>();
 			stringListBuffer.addAll(Arrays.asList(input_sentence_i.split(" ")));
 			stringListBuffer.add(0, "<BOS>");
@@ -143,7 +153,7 @@ public class getNgram {
 
 		this.word_vector = word_vector;
 		this.word_vector_map = word_map;
-
+*/
 		return true;
 	}
 	
